@@ -273,7 +273,8 @@ module.exports = function (Topics) {
             }
             const exists = await user.existsBySlug(slugify(data.handle));
             if (exists) {
-                throw new Error('[[error:username-taken]]');
+                throw new Error(`[[error:username-taken, ${data}]]`);
+
             }
         }
     }
